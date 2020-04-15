@@ -22,7 +22,12 @@
         flexDirection="column"
       >
         <TextField v-model="msg" class="editor" />
-        <Image src="~/assets/images/fbs.png" stretch="none" class="img" />
+        <Image
+          src="~/assets/images/fbs.png"
+          stretch="none"
+          class="img"
+          @tap="pageNew"
+        />
         <Label class="message" :text="finalText" />
       </FlexboxLayout>
     </ScrollView>
@@ -31,6 +36,7 @@
 
 <script>
 import Menu from "./Menu";
+import New from "./New";
 
 export default {
   data() {
@@ -44,6 +50,16 @@ export default {
     },
   },
   methods: {
+    pageNew() {
+      this.$navigateTo(New, {
+        animated: true,
+        transition: {
+          name: "slideLeft",
+          duration: 250,
+          curve: "easeIn",
+        },
+      });
+    },
     showMenu() {
       this.$navigateTo(Menu, {
         animated: true,

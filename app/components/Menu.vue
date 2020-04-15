@@ -1,19 +1,20 @@
 <template>
   <Page>
     <ActionBar>
-      <NavigationButton
-        text="Back"
-        android.systemIcon="ic_menu_back"
-        @tap="$navigateBack()"
-      />
-      <StackLayout
-        orientation="horizontal"
-        ios:horizontalAlignment="center"
-        android:horizontalAlignment="center"
-      >
-        <Image src="~/assets/images/icon.png" class="fbs-icon"></Image>
-        <Label text="FBS Sistemas" class="fbs-title" />
-      </StackLayout>
+      <AbsoluteLayout width="100%" height="100%">
+        <FlexboxLayout
+          width="100%"
+          height="100%"
+          justifyContent="space-between"
+          alignItems="center"
+        >
+          <StackLayout orientation="horizontal">
+            <Image src="~/assets/images/icon.png" class="fbs-icon"></Image>
+            <Label text="FBS Sistemas2" class="fbs-title" />
+          </StackLayout>
+          <Button text="BT" @tap="$navigateBack()" />
+        </FlexboxLayout>
+      </AbsoluteLayout>
     </ActionBar>
     <ScrollView>
       <FlexboxLayout
@@ -21,7 +22,7 @@
         justifyContent="center"
         flexDirection="column"
       >
-        <Label class="message" text="Page 2" />
+        <Label class="message" text="Page" />
       </FlexboxLayout>
     </ScrollView>
   </Page>
