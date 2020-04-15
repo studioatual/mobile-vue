@@ -1,6 +1,11 @@
 <template>
   <Page class="page">
     <ActionBar>
+      <NavigationButton
+        text="Menu"
+        android.systemIcon="ic_menu_search"
+        @tap="showMenu"
+      />
       <StackLayout
         orientation="horizontal"
         ios:horizontalAlignment="center"
@@ -25,6 +30,8 @@
 </template>
 
 <script>
+import Menu from "./Menu";
+
 export default {
   data() {
     return {
@@ -33,7 +40,19 @@ export default {
   },
   computed: {
     finalText() {
-      return `Title: ${this.msg}`;
+      return `Title2: ${this.msg}`;
+    },
+  },
+  methods: {
+    showMenu() {
+      this.$navigateTo(Menu, {
+        animated: true,
+        transition: {
+          name: "slideRight",
+          duration: 250,
+          curve: "easeIn",
+        },
+      });
     },
   },
 };
